@@ -1,191 +1,172 @@
-*{
-	margin: 0px;
-	padding: 0px;
-	font-family: sans-serif;
-	box-sizing: border-box;
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+  box-sizing: border-box;
 }
 
-html,body{
-	line-height: 2em;
-	padding: 5px;
-	background: #f1f1f1;
+html,
+body {
+  line-height: 2em;
+  /* padding: 5px; */
+  background: #f1f1f1;
   height: 100%;
 }
 
-#main{
+#main {
   overflow: auto;
   padding-bottom: 20px;
 }
 /*style the navigation*/
 .nav {
-	overflow: hidden;
-	width: 100%
-	height:50px;
-	line-height: 60px;
-	background: #4caf50;
+  width: 100%;
+  height: 50px;
+  background: #4caf50;
+  display: flex; /* Align items properly */
+  justify-content: space-between; /* Spread content */
+  align-items: center; /* Align vertically */
 }
-/*style each list under the navigation*/
-.nav li	 {
-	float: right;
-	margin-right: 25px;
-	display: block;
-	list-style-position: bottom-top;
 
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Align items horizontally */
+  flex-direction: row-reverse;
+}
+
+/*style each list under the navigation*/
+.nav li {
+  margin-right: 25px;
+  display: block;
+  border-radius: 10px;
 }
 /*style the link tesx under the navigation*/
-.nav a{
-	color: white;
-	text-decoration: none;
-
+.nav a {
+  color: white;
+  text-decoration: none;
+  padding: 2px 6px;
+  border-radius: 10px;
+  display: block; /* Ensures full area is clickable */
+  position: relative;
 }
+
 /*style the h2 under nav*/
-.nav h2{
-	float: left;
-	margin-left: 30px;
-	
+.nav h2 {
+  margin-left: 30px;
 }
 
-.nav li:hover {
-	 background-color: #585454;
-	 border-radius: 7px;
+.nav ul a:hover {
+  color: #c8a165;
+  background-color: #585454;
+  transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 /*making the selected nav bar active*/
 #active {
-	background-color: #5f5f5f;
-	border-radius: 7px;
-
+  background-color: #5f5f5f;
 }
-.row{
+.row {
   height: 100%;
-}
-/*clear floats after the colums*/
-.row:after{
-	content: "";
-	display: table;
-	clear: both;
-}
-
-/*img*/
-.realimg {
-    background-color: #aaa;
-    width: 100%;
-    padding: 20px;
-    height:100px;
-    display: inline;
-    float: left;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Create two unequal columns that floats next to each other */
-.leftcolumn {   
-    float: left;
-    width: 75%;
+.leftcolumn {
+  flex: 3;
+  padding-left: 30px; /* Adds space inside the column */
 }
 
-.leftcolumn h2{
+.leftcolumn h2 {
   text-align: center;
-  font-size: bold , italic;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
 /* Right column */
 .rightcolumn {
-    float: left;
-    width: 25%;
-    background-color: #f1f1f1;
-    padding-left: 20px;
+  flex: 1;
+  padding-left: 20px;
+  padding-right: 10px;
 }
-
 
 /*add card effect for articles*/
-.card{
-	background-color: white;
-	padding: 20px;
-	margin-top: 20px;
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
 }
 
-
-#wrapper{
+#wrapper {
   min-height: 100%;
 }
 
 label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
+  padding: 12px 12px 12px 0;
+  display: inline-block;
 }
 
-input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
+input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
 }
 
-input[type=submit]:hover {
-    background-color: #45a049;
+input[type="submit"]:hover {
+  background-color: #45a049;
 }
 
 .container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
 }
-
-.col-1 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-}
-
-.col-2 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-}
-
 
 .footer {
-    background-color: #aaaaaa;
-    padding: 10px;
-    text-align: left;
-    position:relative;     
+  background-color: #aaaaaa;
+  padding: 10px;
+  text-align: center;
 }
 
 /* Responsive layout - when the screen is less than 800px wide,
  make the two columns stack on top of each other instead of next to each other */
 @media (max-width: 800px) {
-    .leftcolumn, .rightcolumn {   
-        width: 100%;
-        padding: 0;
-    }
+  .leftcolumn,
+  .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
 }
 
 /* Responsive layout - when the screen is less than 400px wide,
  make the navigation links stack on top of each other instead of next to each other */
 @media (max-width: 400px) {
-    .topnav a {
-        float: none;
-        width:100%;
-    }
+  .nav a {
+    float: none;
+    width: 100%;
+  }
 }
 
 /* table styling for index page*/
 
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+  background-color: #dddddd;
 }
